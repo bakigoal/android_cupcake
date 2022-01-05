@@ -11,10 +11,17 @@ import androidx.navigation.ui.setupActionBarWithNavController
  */
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setupActionBarWithNavController(navController())
+        navController = navController()
+        setupActionBarWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
     private fun navController(): NavController =
