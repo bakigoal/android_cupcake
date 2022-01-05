@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentPickupBinding
 
 class PickupFragment : Fragment() {
@@ -26,8 +27,10 @@ class PickupFragment : Fragment() {
         }
     }
 
-    fun goToNextScreen() {
-        Toast.makeText(activity, "Next", Toast.LENGTH_SHORT).show()
+    private fun goToNextScreen() {
+        val actionPickupFragmentToSummaryFragment =
+            PickupFragmentDirections.actionPickupFragmentToSummaryFragment()
+        findNavController().navigate(actionPickupFragmentToSummaryFragment)
     }
 
     override fun onDestroyView() {

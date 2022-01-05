@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentStartBinding
 
 class StartFragment : Fragment() {
@@ -29,8 +30,10 @@ class StartFragment : Fragment() {
         }
     }
 
-    fun orderCupcake(quantity: Int) {
-        Toast.makeText(activity, "Ordered $quantity cupcake(s)", Toast.LENGTH_SHORT).show()
+    private fun orderCupcake(quantity: Int) {
+        val actionStartFragmentToFlavorFragment =
+            StartFragmentDirections.actionStartFragmentToFlavorFragment(quantity)
+        findNavController().navigate(actionStartFragmentToFlavorFragment)
     }
 
     override fun onDestroyView() {
