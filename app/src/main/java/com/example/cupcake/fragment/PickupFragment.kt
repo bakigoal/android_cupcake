@@ -35,4 +35,10 @@ class PickupFragment : Fragment() {
         val toSummaryFragment = PickupFragmentDirections.actionPickupFragmentToSummaryFragment()
         findNavController().navigate(toSummaryFragment)
     }
+
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        val toStartFragment = PickupFragmentDirections.actionPickupFragmentToStartFragment()
+        findNavController().navigate(toStartFragment)
+    }
 }

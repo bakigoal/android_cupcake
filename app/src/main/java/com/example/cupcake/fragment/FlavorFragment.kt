@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.cupcake.R
 import com.example.cupcake.databinding.FragmentFlavorBinding
 import com.example.cupcake.viewmodel.OrderViewModel
 
@@ -34,5 +35,11 @@ class FlavorFragment : Fragment() {
     fun goToNextScreen() {
         val toPickupFragment = FlavorFragmentDirections.actionFlavorFragmentToPickupFragment()
         findNavController().navigate(toPickupFragment)
+    }
+
+    fun cancelOrder() {
+        sharedViewModel.resetOrder()
+        val toStartFragment = FlavorFragmentDirections.actionFlavorFragmentToStartFragment()
+        findNavController().navigate(toStartFragment)
     }
 }
