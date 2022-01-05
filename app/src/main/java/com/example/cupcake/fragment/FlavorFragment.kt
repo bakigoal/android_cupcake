@@ -21,6 +21,7 @@ class FlavorFragment : Fragment() {
         binding = fragmentBinding
         binding?.apply {
             viewModel = sharedViewModel
+            lifecycleOwner = viewLifecycleOwner
         }
         return fragmentBinding.root
     }
