@@ -21,24 +21,17 @@ class SummaryFragment : Fragment() {
         binding?.apply {
             viewModel = sharedViewModel
             lifecycleOwner = viewLifecycleOwner
+            binding?.summaryFragment = this@SummaryFragment
         }
         return fragmentBinding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding?.apply {
-            sendButton.setOnClickListener { sendOrder() }
-        }
-    }
-
-    fun sendOrder() {
-        Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         binding = null
+    }
+
+    fun sendOrder() {
+        Toast.makeText(activity, "Send Order", Toast.LENGTH_SHORT).show()
     }
 }
