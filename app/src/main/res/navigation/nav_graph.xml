@@ -21,9 +21,6 @@
         <action
             android:id="@+id/action_flavorFragment_to_pickupFragment"
             app:destination="@id/pickupFragment" />
-        <argument
-            android:name="quantity"
-            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/pickupFragment"
