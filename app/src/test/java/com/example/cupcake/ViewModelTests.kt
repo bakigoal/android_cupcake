@@ -3,6 +3,7 @@ package com.example.cupcake
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.cupcake.viewmodel.OrderViewModel
 import org.junit.Assert
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
@@ -13,16 +14,21 @@ class ViewModelTests {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
+    private lateinit var viewModel: OrderViewModel
+
+    @Before
+    fun setupTest() {
+        viewModel = OrderViewModel()
+    }
+
     @Test
     fun quantity_twelve_cupcakes() {
-        val viewModel = OrderViewModel()
         viewModel.setQuantity(12)
         Assert.assertEquals(12, viewModel.quantity.value)
     }
 
     @Test
     fun price_27_for_twelve_cupcakes() {
-        val viewModel = OrderViewModel()
         viewModel.setQuantity(12)
         // 'Transformations' will only be called if we observe the object for changes
         viewModel.price.observeForever {}
