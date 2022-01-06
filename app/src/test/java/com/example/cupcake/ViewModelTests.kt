@@ -20,4 +20,12 @@ class ViewModelTests {
         Assert.assertEquals(12, viewModel.quantity.value)
     }
 
+    @Test
+    fun price_27_for_twelve_cupcakes() {
+        val viewModel = OrderViewModel()
+        viewModel.setQuantity(12)
+        // 'Transformations' will only be called if we observe the object for changes
+        viewModel.price.observeForever {}
+        Assert.assertEquals("$27.00", viewModel.price.value)
+    }
 }
